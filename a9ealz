@@ -1,0 +1,921 @@
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Window = Library.CreateLib("a9eal's | discord.com/invite/njACdJ4XEV | Join For Updates !", "Midnight")
+local Tab = Window:NewTab("Items")
+local Section = Tab:NewSection("Items")
+
+local Toggle1 = Section:NewToggle("Auto Box", "ToggleInfo", function(state)
+    scriptEnabled1 = state
+    if scriptEnabled1 then
+        EnableScript1()
+    else
+        DisableScript1()
+    end
+end)
+
+function EnableScript1()
+    while scriptEnabled1 do
+        wait(0)
+
+    
+        local TweenService = game:GetService("TweenService")
+local Players = game:GetService("Players")
+local workspace = game:GetService("Workspace")
+
+local function teleportToCFrame(object)
+    if object:IsA("BasePart") then
+        -- Create a TweenInfo object for the tween
+        local tweenInfo = TweenInfo.new(
+            3, -- Duration
+            Enum.EasingStyle.Linear, -- Easing style
+            Enum.EasingDirection.In, -- Easing direction
+            0, -- Number of times to repeat (0 means no repeat)
+            false, -- Reverses the tween if true
+            0 -- Delay before starting the tween
+        )	
+
+        -- Define the target position
+        local targetPosition = object.Position
+
+        -- Create the tween
+        local tween = TweenService:Create(
+            Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"), -- Object to tween
+            tweenInfo,
+            {CFrame = CFrame.new(targetPosition)} -- Target properties
+        )
+
+        -- Play the tween
+        tween:Play()
+    end
+end
+
+-- Define the target CFrame to ignore
+local targetCFrame = CFrame.new(1804.53906, -298.173584, -309.464966, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+-- Find the Item folder in workspace
+local itemFolder = workspace:FindFirstChild("Item")
+
+-- Check if the folder exists
+if itemFolder and itemFolder:IsA("Folder") then
+    -- Loop through the objects in the Item folder
+    for _, object in pairs(itemFolder:GetChildren()) do
+        -- Check if the object is named "Box" and has an object called "Outline" inside
+        local outlineObject = object:FindFirstChild("Outline")
+        if object:IsA("BasePart") and object.Name == "Box" and outlineObject and object.CFrame ~= targetCFrame then
+            -- Teleport to the CFrame of the Box object using tween
+            teleportToCFrame(object)
+        end
+    end
+else
+    warn("Item folder not found in workspace.")
+end
+
+        
+        
+wait(1)
+
+game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.E, false, game)
+
+
+wait(2)
+
+game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.E, false, game)
+
+        
+
+
+
+
+    end
+    
+
+ end
+
+function DisableScript1()
+    print("Script disabled")
+end
+
+
+
+
+local Toggle12 = Section:NewToggle("Auto Chests", "must have key", function(state)
+    scriptEnabled12 = state
+    if scriptEnabled12 then
+        EnableScript12()
+    else
+        DisableScript12()
+    end
+end)
+
+function EnableScript12()
+    while scriptEnabled12 do
+        wait(1)
+        local function teleportToChest(object)
+            if object:IsA("BasePart") then
+                game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(object.CFrame)
+            end
+        end
+        
+        -- Find the Item folder in workspace
+        local itemFolder = workspace:FindFirstChild("Item")
+        
+        -- Check if the folder exists
+        if itemFolder and itemFolder:IsA("Folder") then
+            -- Loop through the objects in the Item folder
+            for _, object in pairs(itemFolder:GetChildren()) do
+                -- Check if the object is named "Chest"
+                if object:IsA("BasePart") and object.Name == "Chest" then
+                    -- Teleport to the CFrame of the Chest object
+                    teleportToChest(object)
+                end
+            end
+        else
+            warn("Item folder not found in workspace.")
+        end
+
+        local itemFolder = workspace.Item
+
+-- Function to trigger the ProximityPrompt of a given object
+local function triggerProximityPrompt(object)
+    local proximityPrompt = object:FindFirstChildOfClass("ProximityPrompt")
+    if proximityPrompt and proximityPrompt:IsA("ProximityPrompt") then
+        proximityPrompt:InputHoldBegin()  -- You can use other methods like InputBegin or TriggerPrompt based on your needs
+    end
+end
+
+-- Iterate through the children of the Item folder
+for _, child in pairs(itemFolder:GetChildren()) do
+    -- Check if the child is a BasePart and its name is "Chest"
+    if child:IsA("BasePart") and child.Name == "Chest" then
+        -- Trigger the ProximityPrompt for each matching child
+        triggerProximityPrompt(child)
+    end
+end
+
+
+        
+    end
+end
+
+
+function DisableScript12()
+    print("Script disabled")
+end
+
+local Toggle9 = Section:NewToggle("WalkSpeed", "ToggleInfo", function(state)
+    scriptEnabled9 = state
+    if scriptEnabled9 then
+        EnableScript9()
+    else
+        DisableScript9()
+    end
+end)
+
+function EnableScript9()
+    while scriptEnabled9 do
+        wait(0)
+
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+
+    end
+end
+
+
+function DisableScript9()
+    print("Script disabled")
+end
+
+
+
+local Toggle2 = Section:NewToggle("Instant Claim Boxes Only", "Put Skills On Z,X,C,V,B,N", function(state)
+    scriptEnabled2 = state
+    if scriptEnabled2 then
+        EnableScript2()
+    else
+        DisableScript2()
+    end
+end)
+
+function EnableScript2()
+    while scriptEnabled2 do
+        wait(0.1)
+
+        local itemFolder = workspace.Item
+
+-- Function to trigger the ProximityPrompt of a given object
+local function triggerProximityPrompt(object)
+    local proximityPrompt = object:FindFirstChildOfClass("ProximityPrompt")
+    if proximityPrompt and proximityPrompt:IsA("ProximityPrompt") then
+        proximityPrompt:InputHoldBegin()  -- You can use other methods like InputBegin or TriggerPrompt based on your needs
+    end
+end
+
+-- Iterate through the children of the Item folder
+for _, child in pairs(itemFolder:GetChildren()) do
+    -- Check if the child is a BasePart and its name contains "Box"
+    if child:IsA("BasePart") and string.find(child.Name, "Box") then
+        -- Trigger the ProximityPrompt for each matching child
+        triggerProximityPrompt(child)
+    end
+end
+
+        
+    end
+end
+
+
+function DisableScript2()
+    print("Script disabled")
+end
+
+
+local Toggle3 = Section:NewToggle("Esp Items", "ToggleInfo", function(state)
+    scriptEnabled3 = state
+    if scriptEnabled3 then
+        EnableScript3()
+    else
+        DisableScript3()
+    end
+end)
+
+function EnableScript3()
+    while scriptEnabled3 do
+        wait(3)
+
+        local Players = game:GetService("Players")
+        local RunService = game:GetService("RunService")
+        local Workspace = game:GetService("Workspace")
+        local LocalPlayer = Players.LocalPlayer
+        
+        -- Function to create a BillboardGui for an item
+        local function createESP(item)
+            local billboardGui = Instance.new("BillboardGui")
+            billboardGui.Adornee = item
+            billboardGui.Size = UDim2.new(0, 100, 0, 50)
+            billboardGui.StudsOffset = Vector3.new(0, 3, 0)
+            billboardGui.AlwaysOnTop = true
+        
+            local textLabel = Instance.new("TextLabel")
+            textLabel.Size = UDim2.new(0, 100, 0, 50)
+            textLabel.Text = item.Name
+            textLabel.TextColor3 = Color3.new(1, 1, 1)
+            textLabel.Font = Enum.Font.SourceSansBold
+            textLabel.FontSize = Enum.FontSize.Size24
+            textLabel.BackgroundTransparency = 1
+            textLabel.TextStrokeTransparency = 0.5
+            textLabel.TextStrokeColor3 = Color3.new(0, 0, 0)
+        
+            textLabel.Parent = billboardGui
+            billboardGui.Parent = Workspace.CurrentCamera
+        end
+        
+        -- Function to create ESP for all items in the Item folder
+        local function createAllESP()
+            local itemsFolder = Workspace:FindFirstChild("Item")
+        
+            if itemsFolder and itemsFolder:IsA("Folder") then
+                for _, item in pairs(itemsFolder:GetChildren()) do
+                    if item:IsA("BasePart") then
+                        createESP(item)
+                    end
+                end
+            else
+                warn("Item folder not found in workspace.")
+            end
+        end
+        
+        -- Create ESP for existing items
+        createAllESP()
+        
+        -- Create ESP for new items added to the folder
+        Workspace.ChildAdded:Connect(function(child)
+            if child:IsA("BasePart") and child.Parent.Name == "Item" then
+                createESP(child)
+            end
+        end)
+        
+        -- Remove ESP for items that are removed from the folder
+        Workspace.ChildRemoved:Connect(function(child)
+            if child:IsA("BasePart") and child.Parent.Name == "Item" then
+                for _, descendant in pairs(Workspace.CurrentCamera:GetChildren()) do
+                    if descendant.Adornee == child then
+                        descendant:Destroy()
+                    end
+                end
+            end
+        end)
+        
+        -- Update ESP positions
+        RunService.RenderStepped:Connect(function()
+            for _, descendant in pairs(Workspace.CurrentCamera:GetChildren()) do
+                if descendant:IsA("BillboardGui") then
+                    local adornee = descendant.Adornee
+                    if adornee and adornee.Parent then
+                        local screenPos, onScreen = Workspace.CurrentCamera:WorldToScreenPoint(adornee.Position)
+                        if onScreen then
+                            descendant.Enabled = true
+                            descendant.Position = UDim2.new(0, screenPos.X, 0, screenPos.Y - 50)
+                        else
+                            descendant.Enabled = false
+                        end
+                    else
+                        descendant:Destroy()
+                    end
+                end
+            end
+        end)
+        
+
+
+    end
+end
+
+function DisableScript3()
+    print("Script disabled")
+end
+
+
+local Tab5 = Window:NewTab("Quests")
+local Section = Tab5:NewSection("Quests")
+
+Section:NewButton("Mochi Awaken Quest", "ButtonInfo", function()
+    local ohNumber1 = 1
+
+game:GetService("ReplicatedStorage").QuestRemotes.AcceptQuest:FireServer(ohNumber1)
+end)
+
+Section:NewButton("Get Daily Quest", "ButtonInfo", function()
+    game:GetService("ReplicatedStorage").GlobalUsedRemotes.GetDailyQuest:FireServer()
+end)
+
+--
+
+
+
+local Tab6 = Window:NewTab("Sell")
+local Section = Tab6:NewSection("Sell")
+
+local Toggle7 = Section:NewToggle("Sell Arrow ", "", function(state)
+    scriptEnabled7 = state
+    if scriptEnabled7 then
+        EnableScript7()
+    else
+        DisableScript7()
+    end
+end)
+
+function EnableScript7()
+    while scriptEnabled7 do
+        wait(0)
+
+        local ohString2 = "Arrow"
+
+game:GetService("ReplicatedStorage").GlobalUsedRemotes.SellItem:FireServer(ohString2)
+        
+    end
+end
+
+
+function DisableScript7()
+    print("Script disabled")
+end
+
+local Toggle22 = Section:NewToggle("Sell Rokakaka ", "", function(state)
+    scriptEnabled22 = state
+    if scriptEnabled22 then
+        EnableScript22()
+    else
+        DisableScript22()
+    end
+end)
+
+function EnableScript22()
+    while scriptEnabled22 do
+        wait(0)
+
+        local ohString3 = "Rokakaka"
+
+game:GetService("ReplicatedStorage").GlobalUsedRemotes.SellItem:FireServer(ohString3)
+        
+    end
+end
+
+
+function DisableScript22()
+    print("Script disabled")
+end
+
+local Toggle33 = Section:NewToggle("Sell Stop Sign ", "", function(state)
+    scriptEnabled33 = state
+    if scriptEnabled33 then
+        EnableScript33()
+    else
+        DisableScript33()
+    end
+end)
+
+function EnableScript33()
+    while scriptEnabled33 do
+        wait(0)
+
+        local ohString1 = "Stop Sign"
+
+game:GetService("ReplicatedStorage").GlobalUsedRemotes.SellItem:FireServer(ohString1) 
+        
+    end
+end
+
+
+function DisableScript33()
+    print("Script disabled")
+end
+
+local Toggle44 = Section:NewToggle("Sell Mysterious Camera ", "", function(state)
+    scriptEnabled44 = state
+    if scriptEnabled44 then
+        EnableScript44()
+    else
+        DisableScript44()
+    end
+end)
+
+function EnableScript44()
+    while scriptEnabled44 do
+        wait(0)
+
+        local ohString4 = "Mysterious Camera"
+
+game:GetService("ReplicatedStorage").GlobalUsedRemotes.SellItem:FireServer(ohString4)
+        
+    end
+end
+
+
+function DisableScript44()
+    print("Script disabled")
+end
+
+local Toggle44 = Section:NewToggle("Sell Barrel ", "", function(state)
+    scriptEnabled44 = state
+    if scriptEnabled44 then
+        EnableScript44()
+    else
+        DisableScript44()
+    end
+end)
+
+function EnableScript44()
+    while scriptEnabled7 do
+        wait(0)
+
+        local ohString5 = "Barrel"
+
+game:GetService("ReplicatedStorage").GlobalUsedRemotes.SellItem:FireServer(ohString5)
+
+        
+    end
+end
+
+
+function DisableScript44()
+    print("Script disabled")
+end
+
+local Toggle55 = Section:NewToggle("Sell Stone Mask ", "", function(state)
+    scriptEnabled55 = state
+    if scriptEnabled55 then
+        EnableScript55()
+    else
+        DisableScript55()
+    end
+end)
+
+function EnableScript55()
+    while scriptEnabled55 do
+        wait(0)
+
+        local ohString6 = "Stone Mask"
+
+game:GetService("ReplicatedStorage").GlobalUsedRemotes.SellItem:FireServer(ohString6)
+        
+    end
+end
+
+
+function DisableScript55()
+    print("Script disabled")
+end
+
+local Toggle66 = Section:NewToggle("Sell Spin Manual ", "", function(state)
+    scriptEnabled66 = state
+    if scriptEnabled66 then
+        EnableScript66()
+    else
+        DisableScript66()
+    end
+end)
+
+function EnableScript66()
+    while scriptEnabled66 do
+        wait(0)
+
+        local ohString7 = "Spin Manual"
+
+game:GetService("ReplicatedStorage").GlobalUsedRemotes.SellItem:FireServer(ohString7)
+
+        
+    end
+end
+
+
+function DisableScript66()
+    print("Script disabled")
+end
+
+
+local Toggle77 = Section:NewToggle("Sell Hamon Manual ", "", function(state)
+    scriptEnabled77 = state
+    if scriptEnabled77 then
+        EnableScript77()
+    else
+        DisableScript77()
+    end
+end)
+
+function EnableScript77()
+    while scriptEnabled77 do
+        wait(0)
+
+        local ohString8 = "Hamon Manual"
+
+game:GetService("ReplicatedStorage").GlobalUsedRemotes.SellItem:FireServer(ohString8)
+        
+    end
+end
+
+
+function DisableScript77()
+    print("Script disabled")
+end
+
+
+local Tab8 = Window:NewTab("Farm")
+local Section = Tab8:NewSection("Farm")
+
+local Toggle88 = Section:NewToggle("Auto Punch", "", function(state)
+    scriptEnabled88 = state
+    if scriptEnabled88 then
+        EnableScript88()
+    else
+        DisableScript88()
+    end
+end)
+
+function EnableScript88()
+    while scriptEnabled88 do
+        wait(0)
+
+        game:GetService("ReplicatedStorage").MochiRemote.Punch:FireServer()
+        
+        
+    end
+end
+
+
+function DisableScript88()
+    print("Script disabled")
+end
+
+
+local Toggle99 = Section:NewToggle("Auto Tp To Dummy", "This Will Tp To Finger When Spawned", function(state)
+    scriptEnabled99 = state
+    if scriptEnabled99 then
+        EnableScript99()
+    else
+        DisableScript99()
+    end
+end)
+
+function EnableScript99()
+    while scriptEnabled99 do
+        wait(0)
+
+        local function teleportToBackOfDummy(dummy)
+            if dummy and dummy:IsA("Model") then
+                local humanoidRootPart = dummy:FindFirstChild("HumanoidRootPart")
+        
+                if humanoidRootPart then
+                    local backOffset = CFrame.new(0, 0, 4) -- You can adjust the offset as needed
+        
+                    local newCFrame = humanoidRootPart.CFrame * backOffset
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(newCFrame)
+                else
+                    warn("HumanoidRootPart not found in Dummy.")
+                end
+            else
+                warn("Invalid Dummy.")
+            end
+        end
+        
+        -- Find the Living folder in workspace
+        local livingFolder = workspace:FindFirstChild("Living")
+        
+        -- Check if the folder exists
+        if livingFolder and livingFolder:IsA("Folder") then
+            -- Find the first child in the Living folder named "Dummy"
+            local dummy = livingFolder:FindFirstChild("Dummy")
+        
+            -- Teleport to the back of the Dummy
+            teleportToBackOfDummy(dummy)
+        else
+            warn("Living folder not found in workspace.")
+        end
+        
+    end
+end
+
+
+function DisableScript99()
+    print("Script disabled")
+end
+
+
+local Toggle71 = Section:NewToggle("Auto Jotaro Kujo", "", function(state)
+    scriptEnabled71 = state
+    if scriptEnabled71 then
+        EnableScript71()
+    else
+        DisableScript71()
+    end
+end)
+
+function EnableScript71()
+    while scriptEnabled71 do
+        wait(0)
+
+        local function teleportToBackOfCharacter(character)
+            if character and character:IsA("Model") then
+                local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+        
+                if humanoidRootPart then
+                    local backOffset = CFrame.new(0, 0, 4) -- You can adjust the offset as needed
+        
+                    local newCFrame = humanoidRootPart.CFrame * backOffset
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(newCFrame)
+                else
+                    warn("HumanoidRootPart not found in Character.")
+                end
+            else
+                warn("Invalid Character.")
+            end
+        end
+        
+        -- Find the Living folder in workspace
+        local livingFolder = workspace:FindFirstChild("Living")
+        
+        -- Check if the folder exists
+        if livingFolder and livingFolder:IsA("Folder") then
+            -- Find the first child in the Living folder named "Jotaro Kujo"
+            local jotaroCharacter = livingFolder:FindFirstChild("Jotaro Kujo")
+        
+            -- Teleport to the back of Jotaro Kujo
+            teleportToBackOfCharacter(jotaroCharacter)
+        else
+            warn("Living folder not found in workspace.")
+        end
+        
+        
+    end
+end
+
+
+function DisableScript71()
+    print("Script disabled")
+end
+
+local Toggle72 = Section:NewToggle("Auto Attacking Dummy", "", function(state)
+    scriptEnabled72 = state
+    if scriptEnabled72 then
+        EnableScript72()
+    else
+        DisableScript72()
+    end
+end)
+
+function EnableScript72()
+    while scriptEnabled72 do
+        wait(0)
+
+        local function teleportToBackOfCharacter(character)
+            if character and character:IsA("Model") then
+                local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+        
+                if humanoidRootPart then
+                    local backOffset = CFrame.new(0, 0, 0) -- You can adjust the offset as needed
+        
+                    local newCFrame = humanoidRootPart.CFrame * backOffset
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(newCFrame)
+                else
+                    warn("HumanoidRootPart not found in Character.")
+                end
+            else
+                warn("Invalid Character.")
+            end
+        end
+        
+        -- Find the Living folder in workspace
+        local livingFolder = workspace:FindFirstChild("Living")
+        
+        -- Check if the folder exists
+        if livingFolder and livingFolder:IsA("Folder") then
+            -- Find the first child in the Living folder named "Attacking Dummy"
+            local attackingDummyCharacter = livingFolder:FindFirstChild("Attacking Dummy")
+        
+            -- Teleport to the back of the Attacking Dummy
+            teleportToBackOfCharacter(attackingDummyCharacter)
+        else
+            warn("Living folder not found in workspace.")
+        end
+        
+        
+    end
+end
+
+
+function DisableScript72()
+    print("Script disabled")
+end
+
+
+
+
+local Toggle73 = Section:NewToggle("Auto Bandits", "", function(state)
+    scriptEnabled73 = state
+    if scriptEnabled73 then
+        EnableScript73()
+    else
+        DisableScript73()
+    end
+end)
+
+function EnableScript73()
+    while scriptEnabled73 do
+        wait(0)
+
+        local function teleportToBackOfCharacter(character)
+            if character and character:IsA("Model") then
+                local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+        
+                if humanoidRootPart then
+                    local backOffset = CFrame.new(0, 0, 4) -- You can adjust the offset as needed
+        
+                    local newCFrame = humanoidRootPart.CFrame * backOffset
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(newCFrame)
+                else
+                    warn("HumanoidRootPart not found in Character.")
+                end
+            else
+                warn("Invalid Character.")
+            end
+        end
+        
+        -- Find the Living folder in workspace
+        local livingFolder = workspace:FindFirstChild("Living")
+        
+        -- Check if the folder exists
+        if livingFolder and livingFolder:IsA("Folder") then
+            -- Find the first child in the Living folder named "Bandit"
+            local banditCharacter = livingFolder:FindFirstChild("Bandit")
+        
+            -- Teleport to the back of the Bandit
+            teleportToBackOfCharacter(banditCharacter)
+        else
+            warn("Living folder not found in workspace.")
+        end
+        
+        
+    end
+end
+
+
+function DisableScript73()
+    print("Script disabled")
+end
+
+
+local Toggle74 = Section:NewToggle("Auto Theifs", "", function(state)
+    scriptEnabled74 = state
+    if scriptEnabled74 then
+        EnableScript74()
+    else
+        DisableScript74()
+    end
+end)
+
+function EnableScript74()
+    while scriptEnabled74 do
+        wait(0)
+
+        local function teleportToBackOfCharacter(character)
+            if character and character:IsA("Model") then
+                local humanoidRootPart = character:FindFirstChild("HumanoidRootPart")
+        
+                if humanoidRootPart then
+                    local backOffset = CFrame.new(0, 0, 4) -- You can adjust the offset as needed
+        
+                    local newCFrame = humanoidRootPart.CFrame * backOffset
+                    game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(newCFrame)
+                else
+                    warn("HumanoidRootPart not found in Character.")
+                end
+            else
+                warn("Invalid Character.")
+            end
+        end
+        
+        -- Find the Living folder in workspace
+        local livingFolder = workspace:FindFirstChild("Living")
+        
+        -- Check if the folder exists
+        if livingFolder and livingFolder:IsA("Folder") then
+            -- Find the first child in the Living folder named "Thief"
+            local thiefCharacter = livingFolder:FindFirstChild("Thief")
+        
+            -- Teleport to the back of the Thief
+            teleportToBackOfCharacter(thiefCharacter)
+        else
+            warn("Living folder not found in workspace.")
+        end
+        
+        
+    end
+end
+
+
+function DisableScript74()
+    print("Script disabled")
+end
+
+local Toggle75 = Section:NewToggle("Auto Finger", "", function(state)
+    scriptEnabled75 = state
+    if scriptEnabled75 then
+        EnableScript75()
+    else
+        DisableScript75()
+    end
+end)
+
+function EnableScript75()
+    while scriptEnabled75 do
+        wait(0)
+
+        
+
+local ohBoolean1 = true
+
+game:GetService("ReplicatedStorage").MochiRemote.Block:FireServer(ohBoolean1)
+        
+    end
+end
+
+
+function DisableScript75()
+    
+
+local ohBoolean1 = false
+
+game:GetService("ReplicatedStorage").MochiRemote.Block:FireServer(ohBoolean1)
+end
+
+
+
+local Tab4 = Window:NewTab("Server")
+local Section = Tab4:NewSection("Server")
+
+Section:NewButton("server hop", "ButtonInfo", function()
+    local module = loadstring(game:HttpGet"https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua")()
+
+module:Teleport(game.PlaceId)
+end)
+
+
+Section:NewButton("Anti AFK", "ButtonInfo", function()
+    wait(0.5)local ba=Instance.new("ScreenGui")
+local ca=Instance.new("TextLabel")local da=Instance.new("Frame")
+local _b=Instance.new("TextLabel")local ab=Instance.new("TextLabel")ba.Parent=game.CoreGui
+ba.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;ca.Parent=ba;ca.Active=true
+ca.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ca.Draggable=true
+ca.Position=UDim2.new(0.698610067,0,0.098096624,0)ca.Size=UDim2.new(0,370,0,52)
+ca.Font=Enum.Font.SourceSansSemibold;ca.Text="Anti AFK Script"ca.TextColor3=Color3.new(0,1,1)
+ca.TextSize=22;da.Parent=ca
+da.BackgroundColor3=Color3.new(0.196078,0.196078,0.196078)da.Position=UDim2.new(0,0,1.0192306,0)
+da.Size=UDim2.new(0,370,0,107)_b.Parent=da
+_b.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)_b.Position=UDim2.new(0,0,0.800455689,0)
+_b.Size=UDim2.new(0,370,0,21)_b.Font=Enum.Font.Arial;_b.Text="by a9eal "
+_b.TextColor3=Color3.new(0,1,1)_b.TextSize=20;ab.Parent=da
+ab.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ab.Position=UDim2.new(0,0,0.158377,0)
+ab.Size=UDim2.new(0,370,0,44)ab.Font=Enum.Font.ArialBold;ab.Text="Status: Active"
+ab.TextColor3=Color3.new(0,1,1)ab.TextSize=20;local bb=game:service'VirtualUser'
+game:service'Players'.LocalPlayer.Idled:connect(function()
+bb:CaptureController()bb:ClickButton2(Vector2.new())
+ab.Text="discord .a9l"wait(2)ab.Text="Status : Active"end)
+end)
